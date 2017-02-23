@@ -13,13 +13,14 @@ except ImportError:
 
 
 def find_executable():
-    prefixs = os.getenv("PATH").split(':')
+    prefixs = os.getenv("PATH").split(';' if sys.platform.startswith('win32') else ':')
+    suffix = '.exe' if sys.platform.startswith('win32') else ''
     for prefix in prefixs:
         try:
-            os.stat(prefix + "/coqtop")
+            os.stat(prefix + os.sep + "coqtop" + suffix)
         except OSError:
             continue
-        return prefix + "/coqtop"
+        return prefix + os.sep + "coqtop" + suffix
 
 
 class Coqtop:
@@ -50,13 +51,14 @@ class Coqtop:
         while True:
             buf = ""
             while not buf.endswith(' < '):
-                select.select([self.proc.stdout], [], [self.proc.stdout])
+                if not sys.platform.startwith('win32'):
+                    select.select([self.proc.stdout], [], [self.proc.stdout])
                 try:
                     data = os.read(self.proc.stdout.fileno(), 256)
                     buf += data.decode(encoding='UTF-8')
                 except OSError as e:
                     sublime.error_message(str(e))
-                    pass
+            buf = buf.replace('\r\n', '\n')
             if buf == "":
                 continue
             if buf.find("\n") == -1:
