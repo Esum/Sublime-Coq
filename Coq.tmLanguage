@@ -64,7 +64,7 @@
 			<key>comment</key>
 			<string>Tactics</string>
 			<key>match</key>
-			<string>\b(apply|eapply|pattern|discriminate|case|unfold|trivial|auto|exact|simpl|reflexivity|intro|intros|rewrite|destruct|induction|compute|omega|clear|subst|rename|into|assumption|contradiction|constructor|split|generalize|dependent|elim|injection)\b</string>
+			<string>\b(apply|eapply|pattern|discriminate|case|unfold|trivial|auto|easy|exact|simpl|reflexivity|intro|intros|rewrite|destruct|induction|compute|omega|clear|subst|rename|into|assumption|contradiction|constructor|split|generalize|dependent|elim|injection)\b</string>
 			<key>name</key>
 			<string>entity.name.function</string>
 		</dict>
