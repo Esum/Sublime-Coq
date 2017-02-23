@@ -51,7 +51,7 @@ class Coqtop:
         while True:
             buf = ""
             while not buf.endswith(' < '):
-                if not sys.platform.startwith('win32'):
+                if not sys.platform.startswith('win32'):
                     select.select([self.proc.stdout], [], [self.proc.stdout])
                 try:
                     data = os.read(self.proc.stdout.fileno(), 256)
@@ -61,11 +61,11 @@ class Coqtop:
             buf = buf.replace('\r\n', '\n')
             if buf == "":
                 continue
-            if buf.find("\n") == -1:
+            if buf.find('\n') == -1:
                 output = ""
                 prompt = buf
             else:
-                (output, prompt) = buf.rsplit("\n", 1)
+                (output, prompt) = buf.rsplit('\n', 1)
             self.manager.receive(output, prompt)
 
     def send(self, statement):
