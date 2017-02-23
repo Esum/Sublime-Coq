@@ -1,0 +1,6 @@
+[
+    { 
+        "caption": "Coq: Run",
+        "command": "run_coqtop"
+    }
+]
