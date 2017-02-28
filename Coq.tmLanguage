@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+529+++<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -64,7 +64,7 @@
 			<key>comment</key>
 			<string>Tactics</string>
 			<key>match</key>
-			<string>\b(apply|eapply|pattern|discriminate|case|unfold|trivial|auto|easy|exact|simpl|reflexivity|intro|intros|rewrite|destruct|induction|compute|omega|clear|subst|rename|into|assumption|contradiction|constructor|split|generalize|dependent|elim|injection)\b</string>
+			<string>\b(apply|eapply|pattern|discriminate|case|unfold|trivial|auto|easy|exact|simpl|reflexivity|intro|intros|rewrite|destruct|inversion|induction|compute|omega|clear|subst|rename|into|assumption|contradiction|constructor|split|generalize|dependent|elim|injection)\b</string>
 			<key>name</key>
 			<string>entity.name.function</string>
 		</dict>
