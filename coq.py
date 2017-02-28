@@ -3,26 +3,14 @@ import sublime, sublime_plugin
 from .coqtop import Coqtop
 
 
-pretty_symbols = {
-    "|-": '⊢', "||": '‖', "/\\": '∧', "\\/": '∨',
-    "->": '→', "<-": '←', "<->": '↔', "=>": '⇒',
-    "<=": '≤', ">=": '≥', "<>": '≠',
-    ">->": '↣',
-    "-->": '⟶', "<--": '⟵', "<-->": '⟷',
-    "==>": '⟹', "<==": '⟸', "~~>": '⟿', "<~~": "⬳"
-}
-
-pretty_names = {
-    "True": '⊤', "False": '⊥',
-    "fun": 'λ', "forall": '∀', "exists": '∃',
-    "nat": 'ℕ', "Prop": 'ℙ', "Real": 'ℝ', "bool": '𝔹',
-}
-
 def prettify(output):
-    for symbol in sorted(pretty_symbols, key=len, reverse=True):
-        output = output.replace(symbol, pretty_symbols[symbol])
-    for name in pretty_names:
-        output = re.sub(r"(?<![a-zA-Z0-9_])"+name+r"(?![a-zA-Z0-9_'])", pretty_names[name], output)
+    if sublime.load_settings('Coq.sublime-settings').get("prettify"):
+        pretty_symbols = sublime.load_settings('Coq.sublime-settings').get("pretty_symbols")
+        pretty_names = sublime.load_settings('Coq.sublime-settings').get("pretty_names")
+        for symbol in sorted(pretty_symbols, key=len, reverse=True):
+            output = output.replace(symbol, pretty_symbols[symbol])
+        for name in pretty_names:
+            output = re.sub(r"(?<![a-zA-Z0-9_])"+name+r"(?![a-zA-Z0-9_'])", pretty_names[name], output)
     return output
 
 

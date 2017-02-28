@@ -3,6 +3,7 @@ Sublime Coq
 
 Extensions to the Sublime Text 3 editor for use with the Coq Proof Assistant.
 
+
 Getting Started
 ---------------
 Currently, Coq plugin is not as flexible as you might hope, but it is still working well. First, open your coq script in a window, then select `Coq: Run` in the command palette. Now you should see another pane jumping out, showing the welcome message from `coqtop`.
@@ -16,11 +17,19 @@ There are several commands available now:
 
 
 `coqtop` Path
---------
+-------------
 
-You might need to modify the user preference file for Coq, change `coqtop_path` to a proper value (usually from `which coqtop` or similar way), so the `coqtop` program can be correctly found.
+You might need to modify the user settings file for Coq, change `coqtop_path` to a proper value (usually from `which coqtop` or similar way), so the `coqtop` program can be correctly found.
 
 The default value will simply be `coqtop`, but during initialization, `$PATH` will also be searched.
+
+
+Pretty output
+-------------
+
+The pretty output can be toggled with the user settings file through the option `prettify`.
+
+The default value is `true`.
 
 
 Highlighting
